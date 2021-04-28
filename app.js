@@ -30,13 +30,17 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
-mongoose.connect("mongodb://localhost:27017/userDB",{useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect("mongodb://localhost:27017/user3DB",{useNewUrlParser: true, useUnifiedTopology: true});
 mongoose.set("useCreateIndex",true);
+post ={
+    Text:"",
+    Comments:[]
+}
 const userSchema=new mongoose.Schema({
     email:String,
     password:String,
     googleId:String,
-    secret:String
+    secret:[post]
 });
 userSchema.plugin(passportLocalMongoose);
 userSchema.plugin(findOrCreate);
@@ -95,6 +99,7 @@ app.get("/secrets",function(req,res){
         else{
             if(foundUsers){
                 res.render("secrets",{userswithSecrets:foundUsers});
+                console.log(foundUsers)
             }
         }
     })
@@ -109,13 +114,15 @@ app.get("/submit",function(req,res){
 });
 app.post("/submit",function(req,res){
     const submitted_secret =req.body.secret;
+    const comment=""
+    const obj={Text:submitted_secret,comments:comment}
     User.findById(req.user.id,function(err,foundUser){
         if(err){
             console.log(err);
         }
         else{
             if(foundUser){
-                foundUser.secret=submitted_secret;
+                foundUser.secret.push(obj);
                 foundUser.save(function(){
                     res.redirect("/secrets");
 
@@ -124,6 +131,30 @@ app.post("/submit",function(req,res){
         }
     })
 
+
+});
+app.post("/comment",function(req,res){
+    user_id=req.body.id
+    cmt=req.body.comment
+    ind=req.body.index
+    console.log(cmt)
+    User.findById(user_id,function(err,foundUser){
+        if(err){
+            console.log("not found");
+        }
+        else{
+            if(foundUser){
+                console.log(foundUser);
+                foundUser.secret[ind]['Comments'].push(cmt)
+                foundUser.save(function(){
+                    res.redirect("/secrets");
+
+                });
+            }
+        }
+    })
+  
+  
 
 });
 
@@ -154,6 +185,7 @@ app.post("/login",function(req,res){
     req.logIn(user,function(err){
         if(err){
             console.log(err);
+            res.redirect("/register");
         }
         else{
             passport.authenticate("local")(req,res,()=>{

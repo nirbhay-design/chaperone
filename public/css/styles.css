@@ -68,7 +68,9 @@ body {
   background-image:url('anotherback.png');
 }
 .display-3{color:white}
-
+.ghost{
+  opacity: 0.0;
+}
 
 /*
 
