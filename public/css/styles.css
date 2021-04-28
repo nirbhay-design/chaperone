@@ -1,16 +1,81 @@
-
 body {
-  background-color: #E8ECEF;
+  background-image: url('background.jpg') ;
+  background-repeat:no-repeat;
 }
-
 .centered {
-    padding-top: 200px;
+    padding-top: 100px;
     text-align: center;
+    background-image: url('background.jpg')
 }
+.lead{
+  color : white;
+}
+.form-group{
+  text-align:center;
+  font-size:30px;
+  color:white;
+}
+.card-body{
+  background-image:url('anotherback.png');
+}
+.btn.btn-success{
+  padding:5px 50px 5px 50px;
+  text-align:center;
+  font-size:21px;
+}
+.fas.fa-key.fa-6x{
+  color:white;
+}
+.container>hr{
+  border:2px solid white;
+}
+/* .form-control{
+  background-color:black;
+  background:transparent;
+  border:transparent;
+  border-bottom : white;
 
-.secret-text {
+} */
+.form-control:hover{
+  font-size:20px;
+}
+/* .secret-text {
   text-align: center;
   font-size: 2rem;
   color: #fff;
   background-color: #000;
+} */
+.container> h1{
+  color:white;
+  text-align:center;
+  margin-bottom : 15px;
+} 
+
+.jumbotron.text-center{
+  background-image:url('background.jpg');
 }
+.secret-text{
+  color:white;
+  font-size:20px;
+}
+.btn.btn-danger{
+  padding:5px 50px 5px 50px;
+  text-align:center;
+  font-size:21px;
+}
+
+.container>.jumbotron.centered{
+  background-image:url('anotherback.png');
+}
+.display-3{color:white}
+
+
+/*
+
+login.ejs => login button => btn btn-success
+register.ejs => register button => btn btn-success
+secrets.ejs => logout button => btn btn-danger
+secrets.ejs => submit a secret  button => btn btn-success
+submit.ejs => submit button => btn btn-success
+
+*/
