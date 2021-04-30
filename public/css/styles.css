@@ -1,6 +1,6 @@
 body {
   background-image: url('background.jpg') ;
-  background-repeat:no-repeat;
+  background-repeat:repeat;
 }
 .centered {
     padding-top: 100px;
@@ -55,8 +55,10 @@ body {
   background-image:url('background.jpg');
 }
 .secret-text{
-  color:white;
-  font-size:20px;
+  color:Red;
+  font-size:25px;
+  word-wrap:word-break;
+  font-weight: bold;
 }
 .btn.btn-danger{
   padding:5px 50px 5px 50px;
@@ -71,6 +73,25 @@ body {
 .ghost{
   opacity: 0.0;
 }
+
+.getcomment{
+  color:green;
+  font-size:20px;
+  /* background:lightblue; */
+  word-wrap: break-word;
+}
+#coolform{
+  display:flex;
+}
+
+#coolinp{
+  margin-right:-350px;
+}
+
+#coolbtn{
+  font-size:15px;
+}
+
 
 /*
 

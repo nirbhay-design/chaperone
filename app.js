@@ -32,7 +32,7 @@ app.use(passport.session());
 
 mongoose.connect("mongodb://localhost:27017/user3DB",{useNewUrlParser: true, useUnifiedTopology: true});
 mongoose.set("useCreateIndex",true);
-post ={
+let post ={
     Text:"",
     Comments:[]
 }
@@ -134,9 +134,9 @@ app.post("/submit",function(req,res){
 
 });
 app.post("/comment",function(req,res){
-    user_id=req.body.id
-    cmt=req.body.comment
-    ind=req.body.index
+    let user_id=req.body.id
+    let cmt=req.body.comment
+    let ind=req.body.index
     console.log(cmt)
     User.findById(user_id,function(err,foundUser){
         if(err){
