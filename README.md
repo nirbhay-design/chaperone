@@ -9,3 +9,4 @@ Steps to run locally:
 4)Run mongod in Terminal
 5)create .env with the the google credential from google developer console.(For google Oauth)
 6)Run node app.js in the directory containing the project.
+7)Link to the website for quick reference : https://aqueous-tor-69332.herokuapp.com/
